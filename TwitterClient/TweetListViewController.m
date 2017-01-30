@@ -16,10 +16,19 @@
 @end
 
 @implementation TweetListViewController
+NSString *tableReuseID = @"tweetTableViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    self.tweetListTableView.dataSource = self;
+    self.tweetListTableView.estimatedRowHeight = 200;
+    self.tweetListTableView.rowHeight = UITableViewAutomaticDimension;
+    
+    UINib *nib = [UINib nibWithNibName:@"TweetTableViewCell" bundle:nil];
+    [self.tweetListTableView registerNib:nib forCellReuseIdentifier:tableReuseID];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,7 +41,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tweetTableViewCell" forIndexPath:indexPath];
+    TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableReuseID forIndexPath:indexPath];
+
+    if (indexPath.row % 2) {
+        cell.retweetContainerHeightConstraint.constant = 0;
+    } else {
+        cell.retweetContainerHeightConstraint.constant = 24;
+    }
+    [cell setNeedsUpdateConstraints];
+
     return cell;
 }
 

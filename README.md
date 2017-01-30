@@ -1,6 +1,6 @@
-# Project 3 - *Name of App Here*
+# Project 3 - *Twitter Client*
 
-**Name of your app** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com).
+**Twitter Client** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com).
 
 Time spent: **X** hours spent in total
 
@@ -56,7 +56,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [Michael Friedman]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

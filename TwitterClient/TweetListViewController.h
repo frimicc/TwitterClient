@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TweetListViewController.h
 //  TwitterClient
 //
 //  Created by  Michael Friedman on 1/30/17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TweetListViewController : UIViewController
 
 @end
-

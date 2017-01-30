@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TweetListViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    // we need a window as big as the constant (runtime) mainScreen
+    CGRect frame = [UIScreen mainScreen].bounds;
+    self.window = [[UIWindow alloc] initWithFrame:frame];
+
+    // get primary VC
+    TweetListViewController *viewController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+
+    // make that VC control the new window
+    self.window.rootViewController = viewController;
+
+    // make that window "key", meaning it's the root window, and show it
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 

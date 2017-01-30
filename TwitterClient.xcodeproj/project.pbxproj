@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		662ED00A1E3FB91500395D1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ED0091E3FB91500395D1A /* main.m */; };
 		662ED00D1E3FB91500395D1A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ED00C1E3FB91500395D1A /* AppDelegate.m */; };
-		662ED0101E3FB91500395D1A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ED00F1E3FB91500395D1A /* ViewController.m */; };
-		662ED0131E3FB91500395D1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 662ED0111E3FB91500395D1A /* Main.storyboard */; };
 		662ED0151E3FB91500395D1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 662ED0141E3FB91500395D1A /* Assets.xcassets */; };
 		662ED0181E3FB91500395D1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 662ED0161E3FB91500395D1A /* LaunchScreen.storyboard */; };
+		662ED0221E3FB9C700395D1A /* TweetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ED0201E3FB9C700395D1A /* TweetListViewController.m */; };
+		662ED0231E3FB9C700395D1A /* TweetListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 662ED0211E3FB9C700395D1A /* TweetListViewController.xib */; };
+		662ED0271E3FC82200395D1A /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ED0251E3FC82200395D1A /* TweetTableViewCell.m */; };
+		662ED0281E3FC82200395D1A /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 662ED0261E3FC82200395D1A /* TweetTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +22,15 @@
 		662ED0091E3FB91500395D1A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		662ED00B1E3FB91500395D1A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		662ED00C1E3FB91500395D1A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		662ED00E1E3FB91500395D1A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		662ED00F1E3FB91500395D1A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		662ED0121E3FB91500395D1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		662ED0141E3FB91500395D1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		662ED0171E3FB91500395D1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		662ED0191E3FB91500395D1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		662ED01F1E3FB9C700395D1A /* TweetListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetListViewController.h; sourceTree = "<group>"; };
+		662ED0201E3FB9C700395D1A /* TweetListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetListViewController.m; sourceTree = "<group>"; };
+		662ED0211E3FB9C700395D1A /* TweetListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetListViewController.xib; sourceTree = "<group>"; };
+		662ED0241E3FC82200395D1A /* TweetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetTableViewCell.h; sourceTree = "<group>"; };
+		662ED0251E3FC82200395D1A /* TweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetTableViewCell.m; sourceTree = "<group>"; };
+		662ED0261E3FC82200395D1A /* TweetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +65,16 @@
 			children = (
 				662ED00B1E3FB91500395D1A /* AppDelegate.h */,
 				662ED00C1E3FB91500395D1A /* AppDelegate.m */,
-				662ED00E1E3FB91500395D1A /* ViewController.h */,
-				662ED00F1E3FB91500395D1A /* ViewController.m */,
-				662ED0111E3FB91500395D1A /* Main.storyboard */,
 				662ED0141E3FB91500395D1A /* Assets.xcassets */,
 				662ED0161E3FB91500395D1A /* LaunchScreen.storyboard */,
 				662ED0191E3FB91500395D1A /* Info.plist */,
 				662ED0081E3FB91500395D1A /* Supporting Files */,
+				662ED01F1E3FB9C700395D1A /* TweetListViewController.h */,
+				662ED0201E3FB9C700395D1A /* TweetListViewController.m */,
+				662ED0211E3FB9C700395D1A /* TweetListViewController.xib */,
+				662ED0241E3FC82200395D1A /* TweetTableViewCell.h */,
+				662ED0251E3FC82200395D1A /* TweetTableViewCell.m */,
+				662ED0261E3FC82200395D1A /* TweetTableViewCell.xib */,
 			);
 			path = TwitterClient;
 			sourceTree = "<group>";
@@ -140,7 +148,8 @@
 			files = (
 				662ED0181E3FB91500395D1A /* LaunchScreen.storyboard in Resources */,
 				662ED0151E3FB91500395D1A /* Assets.xcassets in Resources */,
-				662ED0131E3FB91500395D1A /* Main.storyboard in Resources */,
+				662ED0231E3FB9C700395D1A /* TweetListViewController.xib in Resources */,
+				662ED0281E3FC82200395D1A /* TweetTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,23 +160,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				662ED0101E3FB91500395D1A /* ViewController.m in Sources */,
+				662ED0221E3FB9C700395D1A /* TweetListViewController.m in Sources */,
 				662ED00D1E3FB91500395D1A /* AppDelegate.m in Sources */,
 				662ED00A1E3FB91500395D1A /* main.m in Sources */,
+				662ED0271E3FC82200395D1A /* TweetTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		662ED0111E3FB91500395D1A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				662ED0121E3FB91500395D1A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		662ED0161E3FB91500395D1A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

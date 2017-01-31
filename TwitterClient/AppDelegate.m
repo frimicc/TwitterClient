@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TweetListViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,11 +24,13 @@
     CGRect frame = [UIScreen mainScreen].bounds;
     self.window = [[UIWindow alloc] initWithFrame:frame];
 
-    // get primary VC
-    TweetListViewController *viewController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+    // get login VC
+    LoginViewController *loginVC = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+    self.window.rootViewController = loginVC;
 
-    // make that VC control the new window
-    self.window.rootViewController = viewController;
+    // get primary VC
+//    TweetListViewController *viewController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+//    self.window.rootViewController = viewController;
 
     // make that window "key", meaning it's the root window, and show it
     [self.window makeKeyAndVisible];

@@ -11,5 +11,6 @@
 @interface TwitterClient : BDBOAuth1SessionManager
 
 + (TwitterClient *) sharedInstance;
++ (NSString *) getBaseUrl;
 
 @end

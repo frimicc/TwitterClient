@@ -25,4 +25,8 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     return instance;
 }
 
++ (NSString *) getBaseUrl {
+    return kTwitterBaseUrl;
+}
+
 @end

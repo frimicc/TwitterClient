@@ -96,6 +96,7 @@
 		662ED0071E3FB91500395D1A /* TwitterClient */ = {
 			isa = PBXGroup;
 			children = (
+				662ED03D1E4113BD00395D1A /* APIs */,
 				662ED0361E4066CE00395D1A /* Controllers */,
 				662ED0351E4066C000395D1A /* Views */,
 				662ED0341E4066B900395D1A /* Models */,
@@ -105,8 +106,6 @@
 				662ED0161E3FB91500395D1A /* LaunchScreen.storyboard */,
 				662ED0191E3FB91500395D1A /* Info.plist */,
 				662ED0081E3FB91500395D1A /* Supporting Files */,
-				662ED02E1E40191400395D1A /* TwitterClient.h */,
-				662ED02F1E40191400395D1A /* TwitterClient.m */,
 				662ED0311E401DE800395D1A /* SecretConstants.h */,
 				662ED0321E401DE800395D1A /* SecretConstants.m */,
 			);
@@ -153,6 +152,15 @@
 				662ED02B1E40179500395D1A /* LoginViewController.xib */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		662ED03D1E4113BD00395D1A /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				662ED02E1E40191400395D1A /* TwitterClient.h */,
+				662ED02F1E40191400395D1A /* TwitterClient.m */,
+			);
+			name = APIs;
 			sourceTree = "<group>";
 		};
 		7D35754833B36E4F88D80120 /* Frameworks */ = {

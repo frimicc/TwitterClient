@@ -84,6 +84,14 @@
             NSLog(@"Failed to get current user");
         }];
 
+        [[TwitterClient sharedInstance] GET:@"1.1/statuses/home_timeline.json" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+            // no code
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"tweets: %@", responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"Failed to get home timeline");
+        }];
+
     } failure:^(NSError *error) {
         NSLog(@"Failed to get access token");
     }];

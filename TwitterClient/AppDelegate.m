@@ -10,6 +10,8 @@
 #import "TweetListViewController.h"
 #import "LoginViewController.h"
 #import "TwitterClient.h"
+#import "User.h"
+#import "Tweet.h"
 
 @interface AppDelegate ()
 
@@ -79,7 +81,10 @@
         [[TwitterClient sharedInstance] GET:@"1.1/account/verify_credentials.json" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
             // no code
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"current user: %@", responseObject);
+
+            User *user = [[User alloc] initWithDictionary:responseObject];
+            NSLog(@"current user: %@", user.name);
+
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"Failed to get current user");
         }];
@@ -87,7 +92,11 @@
         [[TwitterClient sharedInstance] GET:@"1.1/statuses/home_timeline.json" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
             // no code
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"tweets: %@", responseObject);
+//            NSLog(@"tweets: %@", responseObject);
+            NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+            for (Tweet *tweet in tweets) {
+                NSLog(@"tweet: %@, created: %@", tweet.text, tweet.createdAt);
+            }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"Failed to get home timeline");
         }];

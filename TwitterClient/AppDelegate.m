@@ -71,12 +71,23 @@
     // get access token (OAuth Part 3 of 3)
     BDBOAuth1Credential *reqToken = [BDBOAuth1Credential credentialWithQueryString:url.query];
     [[TwitterClient sharedInstance] fetchAccessTokenWithPath:@"oauth/access_token" method:@"POST" requestToken:reqToken success:^(BDBOAuth1Credential *accessToken) {
+
         NSLog(@"Got access token");
+        [[TwitterClient sharedInstance].requestSerializer saveAccessToken:accessToken];
+
+        // discover current user
+        [[TwitterClient sharedInstance] GET:@"1.1/account/verify_credentials.json" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+            // no code
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"current user: %@", responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"Failed to get current user");
+        }];
 
     } failure:^(NSError *error) {
         NSLog(@"Failed to get access token");
     }];
-    
+
     return YES;
 }
 

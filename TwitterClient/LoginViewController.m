@@ -27,6 +27,7 @@
         NSDictionary<NSString *,id> *options = [[NSDictionary alloc] init];
         [[UIApplication sharedApplication] openURL:authURL options:options completionHandler:^(BOOL success) {
             // no code, handler is in AppDelegate:openURL
+            NSLog(@"Got auth token");
         }];
 
     } failure:^(NSError *error) {

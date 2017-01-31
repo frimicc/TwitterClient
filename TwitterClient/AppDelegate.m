@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TweetListViewController.h"
 #import "LoginViewController.h"
+#import "TwitterClient.h"
 
 @interface AppDelegate ()
 
@@ -65,5 +66,18 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL) application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+
+    // get access token (OAuth Part 3 of 3)
+    BDBOAuth1Credential *reqToken = [BDBOAuth1Credential credentialWithQueryString:url.query];
+    [[TwitterClient sharedInstance] fetchAccessTokenWithPath:@"oauth/access_token" method:@"POST" requestToken:reqToken success:^(BDBOAuth1Credential *accessToken) {
+        NSLog(@"Got access token");
+
+    } failure:^(NSError *error) {
+        NSLog(@"Failed to get access token");
+    }];
+    
+    return YES;
+}
 
 @end

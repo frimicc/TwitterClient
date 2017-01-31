@@ -18,14 +18,15 @@
     // clear previous login info
     [[TwitterClient sharedInstance].requestSerializer removeAccessToken];
     
-    // get request token
+    // get request token (OAuth Part 1 of 3)
     [[TwitterClient sharedInstance] fetchRequestTokenWithPath:@"/oauth/request_token" method:@"GET" callbackURL:[NSURL URLWithString:@"cptwitterdemo://oauth"] scope:nil success:^(BDBOAuth1Credential *requestToken) {
         NSLog(@"Got request token");
 
+        // get authorization (OAuth Part 2 of 3)
         NSURL *authURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?oauth_token=%@", [TwitterClient getBaseUrl], @"/oauth/authorize", requestToken.token]];
         NSDictionary<NSString *,id> *options = [[NSDictionary alloc] init];
         [[UIApplication sharedApplication] openURL:authURL options:options completionHandler:^(BOOL success) {
-            // code
+            // no code, handler is in AppDelegate:openURL
         }];
 
     } failure:^(NSError *error) {

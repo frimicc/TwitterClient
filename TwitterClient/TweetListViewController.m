@@ -8,6 +8,7 @@
 
 #import "TweetListViewController.h"
 #import "TweetTableViewCell.h"
+#import "TwitterClient.h"
 
 @interface TweetListViewController () <UITableViewDataSource>
 
@@ -31,24 +32,35 @@ NSString *tableReuseID = @"tweetTableViewCell";
 
 }
 
+- (void) reloadData {
+    __weak TweetListViewController *weakSelf = self;
+    [[TwitterClient sharedInstance] GET:@"1.1/statuses/home_timeline.json" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        // no code
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        weakSelf.tweets = [Tweet tweetsWithArray:responseObject];
+        [weakSelf.tweetListTableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Failed to get home timeline");
+    }];
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.tweets.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableReuseID forIndexPath:indexPath];
 
-    if (indexPath.row % 2) {
-        cell.retweetContainerHeightConstraint.constant = 0;
-    } else {
-        cell.retweetContainerHeightConstraint.constant = 24;
-    }
-    [cell setNeedsUpdateConstraints];
+    Tweet *model = [self.tweets objectAtIndex:indexPath.row];
+    cell.model = model;
+    [cell reloadData];
 
     return cell;
 }

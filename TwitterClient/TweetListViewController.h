@@ -10,4 +10,7 @@
 
 @interface TweetListViewController : UIViewController
 
+@property (nonatomic, strong) NSArray *tweets;
+- (void) reloadData;
+
 @end

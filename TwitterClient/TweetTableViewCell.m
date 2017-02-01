@@ -24,12 +24,24 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+}
 
-    self.nameLabel.text = @"Twitter Name";
-    self.handleLabel.text = @"@frimiccalksdja;sligh;alish;ashga;sh;aksjdh";
-    self.timestampLabel.text = @"4h";
-    self.contentLabel.text = @"Full tweet goes here.";
-    
+- (void) reloadData {
+
+    if (self.model) {
+        self.nameLabel.text = self.model.user.name;
+        self.handleLabel.text = self.model.user.screenname;
+        self.timestampLabel.text = self.model.createdAgo;
+        self.contentLabel.text = self.model.text;
+        self.retweetFrom.text = self.model.retweetFrom;
+        if (self.retweetFrom.text) {
+            self.retweetContainerHeightConstraint.constant = 24;
+        } else {
+            self.retweetContainerHeightConstraint.constant = 0;
+        }
+        [self setNeedsUpdateConstraints];
+    }
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -26,6 +26,7 @@
 
             [self setBackButtonItem];
             TweetListViewController *tweetsVC = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+            [tweetsVC reloadData];
             [self.navigationController showViewController:tweetsVC sender:nil];
 
         } else {
@@ -43,6 +44,7 @@
     if ([User currentUser]) {
         [self setBackButtonItem];
         TweetListViewController *tweetsVC = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+        [tweetsVC reloadData];
         [self.navigationController showViewController:tweetsVC sender:nil];
     }
 }

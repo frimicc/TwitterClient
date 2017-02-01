@@ -15,5 +15,6 @@
 + (NSString *) getBaseUrl;
 - (void) loginWithCompletion:(void (^)(User *user, NSError *error))completion;
 - (void) openURL:(NSURL *)url;
+- (void) logout;
 
 @end

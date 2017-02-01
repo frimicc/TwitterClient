@@ -8,6 +8,7 @@
 
 #import "TwitterClient.h"
 #import "SecretConstants.h"
+#import "User.h"
 
 NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 
@@ -73,6 +74,7 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 
             User *user = [[User alloc] initWithDictionary:responseObject];
+            [User setCurrentUser:user]; // save for next login
             self.loginCompletion(user, nil);   // call completion with user and no error
 
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -86,6 +88,11 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     }];
 
 
+}
+
+- (void) logout {
+    [self deauthorize];
+    [User setCurrentUser:nil];
 }
 
 //[self GET:@"1.1/statuses/home_timeline.json" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {

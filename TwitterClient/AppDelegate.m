@@ -10,15 +10,14 @@
 #import "TweetListViewController.h"
 #import "LoginViewController.h"
 #import "TwitterClient.h"
-#import "User.h"
-#import "Tweet.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) UINavigationController *navigation;
 
 @end
 
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -27,13 +26,12 @@
     CGRect frame = [UIScreen mainScreen].bounds;
     self.window = [[UIWindow alloc] initWithFrame:frame];
 
-    // get login VC
+    // get VCs
     LoginViewController *loginVC = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-    self.window.rootViewController = loginVC;
 
-    // get primary VC
-//    TweetListViewController *viewController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
-//    self.window.rootViewController = viewController;
+    // get a UINavigationController to let us stack view controllers
+    self.navigation = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    self.window.rootViewController = self.navigation;
 
     // make that window "key", meaning it's the root window, and show it
     [self.window makeKeyAndVisible];

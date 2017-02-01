@@ -7,6 +7,7 @@
 //
 
 #import "TweetTableViewCell.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface TweetTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *retweetImageView;
@@ -32,8 +33,12 @@
         self.nameLabel.text = self.model.user.name;
         self.handleLabel.text = self.model.user.screenname;
         self.timestampLabel.text = self.model.createdAgo;
-        self.contentLabel.text = self.model.text;
 
+        self.contentLabel.text = self.model.text;
+        [self.contentLabel sizeToFit];
+        
+        [self.profileImageView setImageWithURL:[NSURL URLWithString:self.model.user.profileImageUrl]];
+        
         self.retweetFrom.text = self.model.retweetFrom;
         if (self.retweetFrom.text) {
             self.retweetContainerHeightConstraint.constant = 24;

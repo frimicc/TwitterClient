@@ -33,11 +33,16 @@
         self.handleLabel.text = self.model.user.screenname;
         self.timestampLabel.text = self.model.createdAgo;
         self.contentLabel.text = self.model.text;
+
         self.retweetFrom.text = self.model.retweetFrom;
         if (self.retweetFrom.text) {
             self.retweetContainerHeightConstraint.constant = 24;
+            self.retweetImageView.hidden = NO;
+            self.retweetFrom.hidden = NO;
         } else {
             self.retweetContainerHeightConstraint.constant = 0;
+            self.retweetImageView.hidden = YES;
+            self.retweetFrom.hidden = YES;
         }
         [self setNeedsUpdateConstraints];
     }

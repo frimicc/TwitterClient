@@ -51,10 +51,19 @@
 }
 
 - (UIViewController *) loggedInVC {
-    TweetListViewController *vc = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
-    vc.timelineName = @"home";
-    [vc reloadData];
-    return vc;
+    UITabBarController *tbvc = [[UITabBarController alloc] init];
+
+    TweetListViewController *hvc = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+    hvc.timelineName = @"home";
+    TweetListViewController *mvc = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+    mvc.timelineName = @"mentions";
+
+    [tbvc setViewControllers:@[hvc, mvc]];
+
+    [hvc reloadData];
+    [mvc reloadData];
+
+    return tbvc;
 }
 
 - (UIViewController *) loggedOutVC {

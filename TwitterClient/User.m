@@ -28,9 +28,9 @@ NSString * const defaultsUserKey = @"currentUserData";
         self.profileImageUrl = dictionary[@"profile_image_url_https"];
         self.backgroundImageUrl = dictionary[@"profile_background_image_url_https"];
         self.tagline = dictionary[@"description"];
-        self.numTweets = dictionary[@"statuses_count"];
-        self.numFollowing = dictionary[@"friends_count"];
-        self.numFollowers = dictionary[@"followers_count"];
+        self.numTweets = [dictionary[@"statuses_count"] stringValue];
+        self.numFollowing = [dictionary[@"friends_count"] stringValue];
+        self.numFollowers = [dictionary[@"followers_count"] stringValue];
     }
     return self;
 }

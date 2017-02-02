@@ -9,6 +9,7 @@
 #import "NavigationManager.h"
 #import "LoginViewController.h"
 #import "TweetListViewController.h"
+#import "ProfileViewController.h"
 #import "User.h"
 
 @interface NavigationManager ()
@@ -63,10 +64,15 @@
     mvc.timelineName = @"mentions";
     UINavigationController *nmvc = [[UINavigationController alloc] initWithRootViewController:mvc];
 
-    [tbvc setViewControllers:@[nhvc, nmvc]];
+    ProfileViewController *pvc = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
+    pvc.model = [User currentUser];
+    pvc.title = @"Me";
+
+    [tbvc setViewControllers:@[nhvc, nmvc, pvc]];
 
     [hvc reloadData];
     [mvc reloadData];
+    [pvc reloadData];
 
     return tbvc;
 }

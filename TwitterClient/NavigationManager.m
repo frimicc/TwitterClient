@@ -52,6 +52,7 @@
 
 - (UIViewController *) loggedInVC {
     TweetListViewController *vc = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+    vc.timelineName = @"home";
     [vc reloadData];
     return vc;
 }
@@ -65,6 +66,7 @@
     self.isLoggedIn = YES;
     [self.navigationController setNavigationBarHidden:NO];
     [self.navigationController setViewControllers:@[[self loggedInVC]]];
+
 }
 
 - (void) logout {

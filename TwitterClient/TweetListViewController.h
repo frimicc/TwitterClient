@@ -10,6 +10,7 @@
 
 @interface TweetListViewController : UIViewController
 
+@property (nonatomic, strong) NSString *timelineName;
 @property (nonatomic, strong) NSArray *tweets;
 - (void) reloadData;
 

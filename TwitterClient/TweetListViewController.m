@@ -33,18 +33,21 @@ NSString *tableReuseID = @"tweetTableViewCell";
 
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleDone target:self action:@selector(logout)];
     self.navigationItem.leftBarButtonItem = back;
+
 }
 
 - (void) reloadData {
     __weak TweetListViewController *weakSelf = self;
-    [[TwitterClient sharedInstance] GET:@"1.1/statuses/home_timeline.json" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    NSString *timelineString = [NSString stringWithFormat:@"1.1/statuses/%@_timeline.json", self.timelineName];
+    [[TwitterClient sharedInstance] GET:timelineString parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         // no code
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         weakSelf.tweets = [Tweet tweetsWithArray:responseObject];
         [weakSelf.tweetListTableView reloadData];
-        
+        weakSelf.title = self.timelineName;
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"Failed to get home timeline");
+        NSLog(@"Failed to get %@ timeline", self.timelineName);
     }];
 
 }

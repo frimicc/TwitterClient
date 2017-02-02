@@ -26,9 +26,11 @@
     if (self) {
         if ([self checkLoggedInState]) {
             self.navigationController = [[UINavigationController alloc] initWithRootViewController:[self loggedInVC]];
+            [self.navigationController setNavigationBarHidden:YES]; // hide this bar so the child bar can show
             [self login];
         } else {
             self.navigationController = [[UINavigationController alloc] initWithRootViewController:[self loggedOutVC]];
+            [self.navigationController setNavigationBarHidden:YES];
             [self logout];
         }
     }
@@ -55,10 +57,13 @@
 
     TweetListViewController *hvc = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
     hvc.timelineName = @"home";
+    UINavigationController *nhvc = [[UINavigationController alloc] initWithRootViewController:hvc];
+
     TweetListViewController *mvc = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
     mvc.timelineName = @"mentions";
+    UINavigationController *nmvc = [[UINavigationController alloc] initWithRootViewController:mvc];
 
-    [tbvc setViewControllers:@[hvc, mvc]];
+    [tbvc setViewControllers:@[nhvc, nmvc]];
 
     [hvc reloadData];
     [mvc reloadData];
@@ -73,14 +78,12 @@
 
 - (void) login {
     self.isLoggedIn = YES;
-    [self.navigationController setNavigationBarHidden:NO];
     [self.navigationController setViewControllers:@[[self loggedInVC]]];
 
 }
 
 - (void) logout {
     self.isLoggedIn = NO;
-    [self.navigationController setNavigationBarHidden:YES];
     [self.navigationController setViewControllers:@[[self loggedOutVC]]];
 }
 

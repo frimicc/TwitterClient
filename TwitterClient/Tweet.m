@@ -13,7 +13,7 @@
 - (id) initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
-        NSLog(@"tweet data: %@", dictionary);
+//        NSLog(@"tweet data: %@", dictionary);
         self.text = dictionary[@"text"];
         self.user = [[User alloc] initWithDictionary:dictionary[@"user"]];
         if (dictionary[@"retweeted_status"]) {

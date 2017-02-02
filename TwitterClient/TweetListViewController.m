@@ -18,6 +18,8 @@
 @end
 
 @implementation TweetListViewController
+
+UIRefreshControl *refreshControl;
 NSString *tableReuseID = @"tweetTableViewCell";
 
 - (void)viewDidLoad {
@@ -34,6 +36,10 @@ NSString *tableReuseID = @"tweetTableViewCell";
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleDone target:self action:@selector(logout)];
     self.navigationItem.leftBarButtonItem = back;
 
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(reloadData) forControlEvents:UIControlEventValueChanged];
+    [self.tweetListTableView addSubview:refreshControl];
+
 }
 
 - (void) reloadData {
@@ -45,9 +51,11 @@ NSString *tableReuseID = @"tweetTableViewCell";
         weakSelf.tweets = [Tweet tweetsWithArray:responseObject];
         [weakSelf.tweetListTableView reloadData];
         weakSelf.title = self.timelineName;
+        [refreshControl endRefreshing];
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"Failed to get %@ timeline", self.timelineName);
+        [refreshControl endRefreshing];
     }];
 
 }

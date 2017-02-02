@@ -7,13 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "TweetListViewController.h"
-#import "LoginViewController.h"
+#import "NavigationManager.h"
 #import "TwitterClient.h"
 
 @interface AppDelegate ()
-
-@property (nonatomic, strong) UINavigationController *navigation;
 
 @end
 
@@ -26,12 +23,8 @@
     CGRect frame = [UIScreen mainScreen].bounds;
     self.window = [[UIWindow alloc] initWithFrame:frame];
 
-    // get VCs
-    LoginViewController *loginVC = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-
-    // get a UINavigationController to let us stack view controllers
-    self.navigation = [[UINavigationController alloc] initWithRootViewController:loginVC];
-    self.window.rootViewController = self.navigation;
+    // all ViewControllers are organized through the NavigationManager
+    self.window.rootViewController = [[NavigationManager shared] rootViewController];
 
     // make that window "key", meaning it's the root window, and show it
     [self.window makeKeyAndVisible];

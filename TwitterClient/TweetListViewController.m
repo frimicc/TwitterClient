@@ -9,6 +9,7 @@
 #import "TweetListViewController.h"
 #import "TweetTableViewCell.h"
 #import "TwitterClient.h"
+#import "NavigationManager.h"
 
 @interface TweetListViewController () <UITableViewDataSource>
 
@@ -30,6 +31,8 @@ NSString *tableReuseID = @"tweetTableViewCell";
     UINib *nib = [UINib nibWithNibName:@"TweetTableViewCell" bundle:nil];
     [self.tweetListTableView registerNib:nib forCellReuseIdentifier:tableReuseID];
 
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleDone target:self action:@selector(logout)];
+    self.navigationItem.leftBarButtonItem = back;
 }
 
 - (void) reloadData {
@@ -63,6 +66,11 @@ NSString *tableReuseID = @"tweetTableViewCell";
     [cell reloadData];
 
     return cell;
+}
+
+- (void) logout {
+    [[TwitterClient sharedInstance] logout];
+    [[NavigationManager shared] logout];
 }
 
 /*

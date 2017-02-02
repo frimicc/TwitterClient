@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "TwitterClient.h"
-#import "TweetListViewController.h"
+#import "NavigationManager.h"
 
 @interface LoginViewController ()
 
@@ -20,17 +20,12 @@
 
     [[TwitterClient sharedInstance] loginWithCompletion:^(User *user, NSError *error) {
         if (user != nil) {
-            // present tweets
-            NSLog(@"Welcome, %@", user.name);
-            // if we are already logged in, show the tweet list
 
-            [self setBackButtonItem];
-            TweetListViewController *tweetsVC = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
-            [tweetsVC reloadData];
-            [self.navigationController showViewController:tweetsVC sender:nil];
+            NSLog(@"Welcome, %@", user.name);
+            [[NavigationManager shared] login];
 
         } else {
-            // present error view
+            NSLog(@"Could not login: %@", error);
         }
     }];
     
@@ -40,22 +35,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
-    // if we are already logged in, show the tweet list
-    if ([User currentUser]) {
-        [self setBackButtonItem];
-        TweetListViewController *tweetsVC = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
-        [tweetsVC reloadData];
-        [self.navigationController showViewController:tweetsVC sender:nil];
-    }
-}
-
-- (void) setBackButtonItem {
-    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleDone target:self action:@selector(logout)];
-    self.navigationItem.backBarButtonItem = back;
-}
-
-- (void) logout {
-    [[TwitterClient sharedInstance] logout];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -26,8 +26,11 @@ NSString * const defaultsUserKey = @"currentUserData";
         self.name = dictionary[@"name"];
         self.screenname = dictionary[@"screen_name"];
         self.profileImageUrl = dictionary[@"profile_image_url_https"];
+        self.backgroundImageUrl = dictionary[@"profile_background_image_url_https"];
         self.tagline = dictionary[@"description"];
-
+        self.numTweets = dictionary[@"statuses_count"];
+        self.numFollowing = dictionary[@"friends_count"];
+        self.numFollowers = dictionary[@"followers_count"];
     }
     return self;
 }

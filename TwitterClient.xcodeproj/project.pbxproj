@@ -22,6 +22,8 @@
 		662ED0391E4067F400395D1A /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ED0381E4067F400395D1A /* Tweet.m */; };
 		662ED03C1E40681600395D1A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 662ED03B1E40681600395D1A /* User.m */; };
 		66E8444C1E42A903000EC45A /* NavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E8444B1E42A903000EC45A /* NavigationManager.m */; };
+		66E844501E43D732000EC45A /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E8444E1E43D732000EC45A /* ProfileViewController.m */; };
+		66E844511E43D732000EC45A /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E8444F1E43D732000EC45A /* ProfileViewController.xib */; };
 		6FADEBE02CE08E48F845398A /* libPods-TwitterClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD270ACC1AC1FA325F6A23C /* libPods-TwitterClient.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,9 @@
 		662ED03B1E40681600395D1A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		66E8444A1E42A903000EC45A /* NavigationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationManager.h; sourceTree = "<group>"; };
 		66E8444B1E42A903000EC45A /* NavigationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationManager.m; sourceTree = "<group>"; };
+		66E8444D1E43D732000EC45A /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		66E8444E1E43D732000EC45A /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		66E8444F1E43D732000EC45A /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		6911044583F3490A6C41D3A3 /* Pods-TwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
 		9FD270ACC1AC1FA325F6A23C /* libPods-TwitterClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TwitterClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE64A522B2A46D75924B8AA /* Pods-TwitterClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +160,9 @@
 				662ED02B1E40179500395D1A /* LoginViewController.xib */,
 				66E8444A1E42A903000EC45A /* NavigationManager.h */,
 				66E8444B1E42A903000EC45A /* NavigationManager.m */,
+				66E8444D1E43D732000EC45A /* ProfileViewController.h */,
+				66E8444E1E43D732000EC45A /* ProfileViewController.m */,
+				66E8444F1E43D732000EC45A /* ProfileViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -238,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66E844511E43D732000EC45A /* ProfileViewController.xib in Resources */,
 				662ED02D1E40179500395D1A /* LoginViewController.xib in Resources */,
 				662ED0181E3FB91500395D1A /* LaunchScreen.storyboard in Resources */,
 				662ED0151E3FB91500395D1A /* Assets.xcassets in Resources */,
@@ -309,6 +318,7 @@
 				662ED0391E4067F400395D1A /* Tweet.m in Sources */,
 				662ED0271E3FC82200395D1A /* TweetTableViewCell.m in Sources */,
 				662ED0301E40191400395D1A /* TwitterClient.m in Sources */,
+				66E844501E43D732000EC45A /* ProfileViewController.m in Sources */,
 				662ED0331E401DE800395D1A /* SecretConstants.m in Sources */,
 				662ED02C1E40179500395D1A /* LoginViewController.m in Sources */,
 			);

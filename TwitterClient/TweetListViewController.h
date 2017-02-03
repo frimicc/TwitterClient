@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TweetTableViewCell.h"
 
-@interface TweetListViewController : UIViewController
+@interface TweetListViewController : UIViewController <TweetActionsDelegate>
 
 @property (nonatomic, strong) NSString *timelineName;
 @property (nonatomic, strong) NSArray *tweets;

@@ -49,7 +49,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whH-Zs-PQb" userLabel="Image Container">
                         <rect key="frame" x="0.0" y="24" width="68" height="228.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N6Q-Tf-S4g" userLabel="Avatar Image">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N6Q-Tf-S4g" userLabel="Avatar Image">
                                 <rect key="frame" x="12" y="16" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="2db-Ul-0uZ"/>

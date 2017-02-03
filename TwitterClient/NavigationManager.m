@@ -11,10 +11,13 @@
 #import "TweetListViewController.h"
 #import "ProfileViewController.h"
 #import "User.h"
+#import "TwitterClient.h"
 
 @interface NavigationManager ()
 
 @property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, weak) UITabBarController *tabController;
+
 @property (nonatomic, assign) BOOL isLoggedIn;
 
 @end
@@ -69,6 +72,7 @@
     pvc.title = @"Me";
 
     [tbvc setViewControllers:@[nhvc, nmvc, pvc]];
+    self.tabController = tbvc;
 
     [hvc reloadData];
     [mvc reloadData];
@@ -99,6 +103,13 @@
         self.isLoggedIn = YES;
     }
     return self.isLoggedIn;
+}
+
+- (void) showUserProfile:(NSString *)screenName {
+    ProfileViewController *pvc = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
+    [[TwitterClient sharedInstance] getUserDictionary:screenName vc:pvc];
+    UINavigationController *tweetListNavController = [self.tabController selectedViewController];
+    [tweetListNavController pushViewController:pvc animated:YES];
 }
 
 @end

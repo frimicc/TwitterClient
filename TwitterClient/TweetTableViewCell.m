@@ -25,6 +25,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarTapped:)];
+    [self.profileImageView addGestureRecognizer:tap];
+
 }
 
 - (void) reloadData {
@@ -67,6 +71,11 @@
 }
 
 - (IBAction)favoriteTapped:(id)sender {
+}
+
+- (void) avatarTapped:(id)sender {
+    id<TweetActionsDelegate> strongDelegate = self.tweetActionsDelegate;
+    [strongDelegate handleAvatarTapped:self.handleLabel.text];
 }
 
 @end

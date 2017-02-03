@@ -95,5 +95,20 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     [User setCurrentUser:nil];
 }
 
+- (void) getUserDictionary:(NSString *)screenName vc:(ProfileViewController *)pvc {
+    NSString *apiString = [NSString stringWithFormat:@"1.1/users/show.json?screen_name=%@", screenName];
+    [self GET:apiString parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        // no code
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        User *user = [[User alloc] initWithDictionary:responseObject];
+        pvc.model = user;
+        pvc.title = pvc.model.name;
+        [pvc reloadData];
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Failed to get user for %@", screenName);
+    }];
+
+}
 
 @end

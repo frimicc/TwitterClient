@@ -74,6 +74,7 @@ NSString *tableReuseID = @"tweetTableViewCell";
 
     Tweet *model = [self.tweets objectAtIndex:indexPath.row];
     cell.model = model;
+    cell.tweetActionsDelegate = self;
     [cell reloadData];
 
     return cell;
@@ -84,14 +85,9 @@ NSString *tableReuseID = @"tweetTableViewCell";
     [[NavigationManager shared] logout];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void) handleAvatarTapped:(NSString *)screenName {
+    [[NavigationManager shared] showUserProfile:screenName];
 }
-*/
+
 
 @end

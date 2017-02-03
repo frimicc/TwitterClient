@@ -9,6 +9,7 @@
 #import <BDBOAuth1Manager/BDBOAuth1SessionManager.h>
 #import "User.h"
 #import "Tweet.h"
+#import "ProfileViewController.h"
 
 @interface TwitterClient : BDBOAuth1SessionManager
 
@@ -17,5 +18,6 @@
 - (void) loginWithCompletion:(void (^)(User *user, NSError *error))completion;
 - (void) openURL:(NSURL *)url;
 - (void) logout;
+- (void) getUserDictionary:(NSString *)screenName vc:(ProfileViewController *)pvc;
 
 @end

@@ -17,5 +17,6 @@
 
 - (void) login;
 - (void) logout;
+- (void) showUserProfile:(NSString *)screenName;
 
 @end

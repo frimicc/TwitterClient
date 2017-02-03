@@ -19,5 +19,6 @@
 - (void) openURL:(NSURL *)url;
 - (void) logout;
 - (void) getUserDictionary:(NSString *)screenName vc:(ProfileViewController *)pvc;
+- (void) sendTweet:(NSString *)tweetText;
 
 @end

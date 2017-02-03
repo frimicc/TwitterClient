@@ -96,4 +96,11 @@ NSString *tableReuseID = @"tweetTableViewCell";
     [[NavigationManager shared] showComposeVC];
 }
 
+- (void) addTweet:(Tweet *)tweet {
+    NSMutableArray *newTweets = [[NSMutableArray alloc] initWithArray:self.tweets];
+    [newTweets insertObject:tweet atIndex:0]; // push onto front of tweets array
+    self.tweets = newTweets;
+    [self.tweetListTableView reloadData];
+}
+
 @end

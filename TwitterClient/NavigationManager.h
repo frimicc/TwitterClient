@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Tweet.h"
 
 @interface NavigationManager : NSObject
 
@@ -19,5 +20,6 @@
 - (void) logout;
 - (void) showUserProfile:(NSString *)screenName;
 - (void) showComposeVC;
+- (void) addTweetToHomeTimeline:(Tweet *)tweet;
 
 @end

@@ -14,7 +14,7 @@
                 <outlet property="avatarImageView" destination="dM2-Xn-C2P" id="Dab-Oz-UCt"/>
                 <outlet property="nameLabel" destination="KmZ-XH-y0o" id="0rc-9R-YvE"/>
                 <outlet property="screenNameLabel" destination="qD4-Y6-vqZ" id="nId-jL-uWx"/>
-                <outlet property="tweetText" destination="onM-Bd-LMo" id="sgf-d3-JCL"/>
+                <outlet property="tweetText" destination="ako-fO-opP" id="KxH-6l-J2m"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,28 +42,25 @@
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Tweet Here" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="onM-Bd-LMo">
-                    <rect key="frame" x="0.0" y="140" width="320" height="428"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ako-fO-opP">
+                    <rect key="frame" x="0.0" y="156" width="320" height="412"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
-                    <connections>
-                        <action selector="typedText:" destination="-1" eventType="editingChanged" id="56Y-k3-bBA"/>
-                    </connections>
-                </textField>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter" returnKeyType="send"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="dM2-Xn-C2P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="Aqe-qv-Gp2"/>
-                <constraint firstItem="onM-Bd-LMo" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="B4n-gZ-uff"/>
+                <constraint firstItem="ako-fO-opP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="CCT-AA-SJd"/>
                 <constraint firstItem="KmZ-XH-y0o" firstAttribute="top" secondItem="dM2-Xn-C2P" secondAttribute="top" id="FJa-Oo-Cnt"/>
                 <constraint firstItem="qD4-Y6-vqZ" firstAttribute="leading" secondItem="KmZ-XH-y0o" secondAttribute="leading" id="IOd-2Q-51b"/>
-                <constraint firstItem="onM-Bd-LMo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JUd-bP-g4z"/>
-                <constraint firstItem="onM-Bd-LMo" firstAttribute="top" secondItem="dM2-Xn-C2P" secondAttribute="bottom" constant="16" id="VVk-rA-NYF"/>
-                <constraint firstAttribute="bottom" secondItem="onM-Bd-LMo" secondAttribute="bottom" id="cJM-Tw-SUJ"/>
+                <constraint firstItem="ako-fO-opP" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="YhK-VK-KIz"/>
+                <constraint firstAttribute="bottom" secondItem="ako-fO-opP" secondAttribute="bottom" id="aw5-9j-kK6"/>
                 <constraint firstItem="KmZ-XH-y0o" firstAttribute="leading" secondItem="dM2-Xn-C2P" secondAttribute="trailing" constant="16" id="eb0-OX-IA2"/>
                 <constraint firstItem="dM2-Xn-C2P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="juK-PL-nkd"/>
                 <constraint firstItem="qD4-Y6-vqZ" firstAttribute="bottom" secondItem="dM2-Xn-C2P" secondAttribute="bottom" id="vKm-5u-rha"/>
+                <constraint firstItem="ako-fO-opP" firstAttribute="top" secondItem="dM2-Xn-C2P" secondAttribute="bottom" constant="32" id="xqr-RV-3G2"/>
             </constraints>
             <point key="canvasLocation" x="25" y="51"/>
         </view>

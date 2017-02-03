@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) UINavigationController *navigationController;
 @property (nonatomic, weak) UITabBarController *tabController;
+@property (nonatomic, weak) TweetListViewController *homeTimelineVC;
 
 @property (nonatomic, assign) BOOL isLoggedIn;
 
@@ -62,6 +63,7 @@
 
     TweetListViewController *hvc = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
     hvc.timelineName = @"home";
+    self.homeTimelineVC = hvc;  // for updating later automatically
     UINavigationController *nhvc = [[UINavigationController alloc] initWithRootViewController:hvc];
 
     TweetListViewController *mvc = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
@@ -122,5 +124,11 @@
     UINavigationController *localNavController = [self.tabController selectedViewController];
     [localNavController pushViewController:cvc animated:YES];
 }
+
+- (void) addTweetToHomeTimeline:(Tweet *)tweet {
+    [self.homeTimelineVC addTweet:tweet];
+    [self.tabController showViewController:self.homeTimelineVC sender:nil];
+}
+
 
 @end

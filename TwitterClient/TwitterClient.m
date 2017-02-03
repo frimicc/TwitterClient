@@ -9,6 +9,8 @@
 #import "TwitterClient.h"
 #import "SecretConstants.h"
 #import "User.h"
+#import "Tweet.h"
+#import "NavigationManager.h"
 
 NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 
@@ -107,6 +109,25 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"Failed to get user for %@", screenName);
+    }];
+
+}
+
+- (void) sendTweet:(NSString *)tweetText {
+    NSLog(@"Sending tweet: %@", tweetText);
+
+    NSString *escapedString = [tweetText stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSString *apiString = [NSString stringWithFormat:@"1.1/statuses/update.json?status=%@", escapedString];
+
+    [self POST:apiString parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+        // no code
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"Posted!");
+        Tweet *newTweet = [[Tweet alloc] initWithDictionary:responseObject];
+        [[NavigationManager shared] addTweetToHomeTimeline:newTweet];
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Could not update status: %@", error);
     }];
 
 }

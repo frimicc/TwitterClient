@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSString *timelineName;
 @property (nonatomic, strong) NSArray *tweets;
 - (void) reloadData;
+- (void) addTweet:(Tweet *)tweet;
 
 @end

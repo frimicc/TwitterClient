@@ -7,14 +7,15 @@
 //
 
 #import "ComposeViewController.h"
+#import "TwitterClient.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
-@interface ComposeViewController () <UITextFieldDelegate>
+@interface ComposeViewController () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
-@property (weak, nonatomic) IBOutlet UITextField *tweetText;
+@property (weak, nonatomic) IBOutlet UITextView *tweetText;
 @property (weak, nonatomic) UIBarButtonItem *countBarButton;
 
 @end
@@ -46,21 +47,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)typedText:(id)sender {
-    long charsLeft = 140 - self.tweetText.text.length;
+- (void) textViewDidChange:(UITextView *)textView {
+    long charsLeft = 140 - textView.text.length;
     self.countBarButton.title = [NSString stringWithFormat:@"%ld", charsLeft];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    [self sendTweet];
-    return YES;
 }
 
 - (void) sendTweet {
     [self.tweetText resignFirstResponder];
-    NSLog(@"Sending tweet: %@", self.tweetText.text);
+    [[TwitterClient sharedInstance] sendTweet:self.tweetText.text];
 }
 
 @end

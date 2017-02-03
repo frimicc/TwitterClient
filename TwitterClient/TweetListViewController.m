@@ -92,6 +92,10 @@ NSString *tableReuseID = @"tweetTableViewCell";
     [[NavigationManager shared] showUserProfile:screenName];
 }
 
+- (void) handleRetweet:(NSString *)tweetId {
+    [[TwitterClient sharedInstance] retweet:tweetId];
+}
+
 - (void) compose {
     [[NavigationManager shared] showComposeVC];
 }

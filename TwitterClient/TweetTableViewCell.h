@@ -12,6 +12,7 @@
 @protocol TweetActionsDelegate <NSObject>
 
 - (void) handleAvatarTapped:(NSString *)screenName;
+- (void) handleRetweet:(NSString *)tweetId;
 
 @end
 

@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString *createdAgo;
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSString *retweetFrom;
+@property (nonatomic, strong) NSString *tweetId;
 
 - (id) initWithDictionary:(NSDictionary *)dictionary;
 + (NSArray *) tweetsWithArray:(NSArray *)array;

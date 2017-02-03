@@ -8,6 +8,7 @@
 
 #import "TweetTableViewCell.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import "TwitterClient.h"
 
 @interface TweetTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *retweetImageView;
@@ -68,6 +69,8 @@
 }
 
 - (IBAction)retweetTapped:(id)sender {
+    id<TweetActionsDelegate> strongDelegate = self.tweetActionsDelegate;
+    [strongDelegate handleRetweet:self.model.tweetId];
 }
 
 - (IBAction)favoriteTapped:(id)sender {

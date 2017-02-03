@@ -132,4 +132,22 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 
 }
 
+// POST https://api.twitter.com/1.1/statuses/retweet/243149503589400576.json
+- (void) retweet:(NSString *)tweetId {
+    NSLog(@"Retweeting tweet: %@", tweetId);
+
+    NSString *apiString = [NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweetId];
+    [self POST:apiString parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+        // no code
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"Retweeted!");
+        Tweet *newTweet = [[Tweet alloc] initWithDictionary:responseObject];
+        [[NavigationManager shared] addTweetToHomeTimeline:newTweet];
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Could not update status: %@", error);
+    }];
+
+}
+
 @end

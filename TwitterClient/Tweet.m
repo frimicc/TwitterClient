@@ -14,6 +14,7 @@
     self = [super init];
     if (self) {
 //        NSLog(@"tweet data: %@", dictionary);
+        self.tweetId = ((NSNumber *)dictionary[@"id"]).stringValue;
         self.text = dictionary[@"text"];
         self.user = [[User alloc] initWithDictionary:dictionary[@"user"]];
         if (dictionary[@"retweeted_status"]) {

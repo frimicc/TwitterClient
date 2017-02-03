@@ -18,5 +18,6 @@
 - (void) login;
 - (void) logout;
 - (void) showUserProfile:(NSString *)screenName;
+- (void) showComposeVC;
 
 @end

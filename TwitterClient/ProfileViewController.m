@@ -8,6 +8,8 @@
 
 #import "ProfileViewController.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import "NavigationManager.h"
+#import "TwitterClient.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
@@ -26,6 +28,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self reloadData];
+
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleDone target:self action:@selector(logout)];
+    self.navigationItem.leftBarButtonItem = back;
 
     UIBarButtonItem *compose = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStyleDone target:self action:@selector(compose)];
     self.navigationItem.rightBarButtonItem = compose;
@@ -50,8 +55,13 @@
     }
 }
 
-- (void) compose {
+- (void) logout {
+    [[TwitterClient sharedInstance] logout];
+    [[NavigationManager shared] logout];
+}
 
+- (void) compose {
+    [[NavigationManager shared] showComposeVC];
 }
 
 @end

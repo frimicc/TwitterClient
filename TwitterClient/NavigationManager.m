@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "TweetListViewController.h"
 #import "ProfileViewController.h"
+#import "ComposeViewController.h"
 #import "User.h"
 #import "TwitterClient.h"
 
@@ -111,6 +112,13 @@
     [[TwitterClient sharedInstance] getUserDictionary:screenName vc:pvc];
     UINavigationController *tweetListNavController = [self.tabController selectedViewController];
     [tweetListNavController pushViewController:pvc animated:YES];
+}
+
+- (void) showComposeVC {
+    ComposeViewController *cvc = [[ComposeViewController alloc] initWithNibName:@"ComposeViewController" bundle:nil];
+    cvc.model = [User currentUser];
+    UINavigationController *localNavController = [self.tabController selectedViewController];
+    [localNavController pushViewController:cvc animated:YES];
 }
 
 @end

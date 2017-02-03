@@ -24,6 +24,8 @@
 		66E8444C1E42A903000EC45A /* NavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E8444B1E42A903000EC45A /* NavigationManager.m */; };
 		66E844501E43D732000EC45A /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E8444E1E43D732000EC45A /* ProfileViewController.m */; };
 		66E844511E43D732000EC45A /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E8444F1E43D732000EC45A /* ProfileViewController.xib */; };
+		66E844551E443FBA000EC45A /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E844531E443FBA000EC45A /* ComposeViewController.m */; };
+		66E844561E443FBA000EC45A /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E844541E443FBA000EC45A /* ComposeViewController.xib */; };
 		6FADEBE02CE08E48F845398A /* libPods-TwitterClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD270ACC1AC1FA325F6A23C /* libPods-TwitterClient.a */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,9 @@
 		66E8444D1E43D732000EC45A /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		66E8444E1E43D732000EC45A /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		66E8444F1E43D732000EC45A /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		66E844521E443FBA000EC45A /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		66E844531E443FBA000EC45A /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		66E844541E443FBA000EC45A /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		6911044583F3490A6C41D3A3 /* Pods-TwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
 		9FD270ACC1AC1FA325F6A23C /* libPods-TwitterClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TwitterClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE64A522B2A46D75924B8AA /* Pods-TwitterClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +168,9 @@
 				66E8444D1E43D732000EC45A /* ProfileViewController.h */,
 				66E8444E1E43D732000EC45A /* ProfileViewController.m */,
 				66E8444F1E43D732000EC45A /* ProfileViewController.xib */,
+				66E844521E443FBA000EC45A /* ComposeViewController.h */,
+				66E844531E443FBA000EC45A /* ComposeViewController.m */,
+				66E844541E443FBA000EC45A /* ComposeViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -250,6 +258,7 @@
 				662ED02D1E40179500395D1A /* LoginViewController.xib in Resources */,
 				662ED0181E3FB91500395D1A /* LaunchScreen.storyboard in Resources */,
 				662ED0151E3FB91500395D1A /* Assets.xcassets in Resources */,
+				66E844561E443FBA000EC45A /* ComposeViewController.xib in Resources */,
 				662ED0231E3FB9C700395D1A /* TweetListViewController.xib in Resources */,
 				662ED0281E3FC82200395D1A /* TweetTableViewCell.xib in Resources */,
 			);
@@ -313,6 +322,7 @@
 				662ED0221E3FB9C700395D1A /* TweetListViewController.m in Sources */,
 				662ED00D1E3FB91500395D1A /* AppDelegate.m in Sources */,
 				662ED03C1E40681600395D1A /* User.m in Sources */,
+				66E844551E443FBA000EC45A /* ComposeViewController.m in Sources */,
 				66E8444C1E42A903000EC45A /* NavigationManager.m in Sources */,
 				662ED00A1E3FB91500395D1A /* main.m in Sources */,
 				662ED0391E4067F400395D1A /* Tweet.m in Sources */,

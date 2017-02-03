@@ -93,7 +93,7 @@ NSString *tableReuseID = @"tweetTableViewCell";
 }
 
 - (void) compose {
-
+    [[NavigationManager shared] showComposeVC];
 }
 
 @end

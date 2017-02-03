@@ -13,6 +13,7 @@
 
 - (void) handleAvatarTapped:(NSString *)screenName;
 - (void) handleRetweet:(NSString *)tweetId;
+- (void) handleFavorite:(NSString *)tweetId;
 
 @end
 

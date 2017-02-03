@@ -74,6 +74,8 @@
 }
 
 - (IBAction)favoriteTapped:(id)sender {
+    id<TweetActionsDelegate> strongDelegate = self.tweetActionsDelegate;
+    [strongDelegate handleFavorite:self.model.tweetId];
 }
 
 - (void) avatarTapped:(id)sender {

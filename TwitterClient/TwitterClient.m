@@ -132,7 +132,6 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 
 }
 
-// POST https://api.twitter.com/1.1/statuses/retweet/243149503589400576.json
 - (void) retweet:(NSString *)tweetId {
     NSLog(@"Retweeting tweet: %@", tweetId);
 
@@ -148,6 +147,21 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
         NSLog(@"Could not update status: %@", error);
     }];
 
+}
+
+- (void) favorite:(NSString *)tweetId {
+    NSLog(@"Favoriting tweet: %@", tweetId);
+
+    NSString *apiString = [NSString stringWithFormat:@"1.1/favorites/create.json?id=%@", tweetId];
+    [self POST:apiString parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+        // no code
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"Favorited!");
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Could not update status: %@", error);
+    }];
+    
 }
 
 @end

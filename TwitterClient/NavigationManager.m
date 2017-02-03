@@ -127,9 +127,13 @@
     [localNavController pushViewController:cvc animated:YES];
 }
 
+- (void) showHomeTimeline {
+    [self.tabController showViewController:self.homeNavC sender:nil];
+}
+
 - (void) addTweetToHomeTimeline:(Tweet *)tweet {
     [self.homeTimelineVC addTweet:tweet];
-    [self.tabController showViewController:self.homeNavC sender:nil];
+    [self showHomeTimeline];
 }
 
 

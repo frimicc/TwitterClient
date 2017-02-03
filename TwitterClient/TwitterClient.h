@@ -21,5 +21,6 @@
 - (void) getUserDictionary:(NSString *)screenName vc:(ProfileViewController *)pvc;
 - (void) sendTweet:(NSString *)tweetText;
 - (void) retweet:(NSString *)tweetId;
+- (void) favorite:(NSString *)tweetId;
 
 @end

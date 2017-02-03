@@ -96,6 +96,10 @@ NSString *tableReuseID = @"tweetTableViewCell";
     [[TwitterClient sharedInstance] retweet:tweetId];
 }
 
+- (void) handleFavorite:(NSString *)tweetId {
+    [[TwitterClient sharedInstance] favorite:tweetId];
+}
+
 - (void) compose {
     [[NavigationManager shared] showComposeVC];
 }

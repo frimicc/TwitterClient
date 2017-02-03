@@ -70,8 +70,9 @@
     ProfileViewController *pvc = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
     pvc.model = [User currentUser];
     pvc.title = @"Me";
+    UINavigationController *npvc = [[UINavigationController alloc] initWithRootViewController:pvc];
 
-    [tbvc setViewControllers:@[nhvc, nmvc, pvc]];
+    [tbvc setViewControllers:@[nhvc, nmvc, npvc]];
     self.tabController = tbvc;
 
     [hvc reloadData];

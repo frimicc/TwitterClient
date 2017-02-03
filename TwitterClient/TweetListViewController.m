@@ -36,6 +36,9 @@ NSString *tableReuseID = @"tweetTableViewCell";
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleDone target:self action:@selector(logout)];
     self.navigationItem.leftBarButtonItem = back;
 
+    UIBarButtonItem *compose = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStyleDone target:self action:@selector(compose)];
+    self.navigationItem.rightBarButtonItem = compose;
+
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(reloadData) forControlEvents:UIControlEventValueChanged];
     [self.tweetListTableView addSubview:refreshControl];
@@ -89,5 +92,8 @@ NSString *tableReuseID = @"tweetTableViewCell";
     [[NavigationManager shared] showUserProfile:screenName];
 }
 
+- (void) compose {
+
+}
 
 @end

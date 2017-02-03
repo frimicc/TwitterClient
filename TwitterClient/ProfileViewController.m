@@ -26,6 +26,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self reloadData];
+
+    UIBarButtonItem *compose = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStyleDone target:self action:@selector(compose)];
+    self.navigationItem.rightBarButtonItem = compose;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,14 +50,8 @@
     }
 }
 
-/*
-#pragma mark - Navigation
+- (void) compose {
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
 
 @end

@@ -71,6 +71,7 @@
     ProfileViewController *pvc = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
     pvc.model = [User currentUser];
     pvc.title = @"Me";
+    pvc.isMeTab = YES;
     UINavigationController *npvc = [[UINavigationController alloc] initWithRootViewController:pvc];
 
     [tbvc setViewControllers:@[nhvc, nmvc, npvc]];
@@ -110,6 +111,7 @@
 - (void) showUserProfile:(NSString *)screenName {
     ProfileViewController *pvc = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
     [[TwitterClient sharedInstance] getUserDictionary:screenName vc:pvc];
+    pvc.isMeTab = NO;
     UINavigationController *tweetListNavController = [self.tabController selectedViewController];
     [tweetListNavController pushViewController:pvc animated:YES];
 }

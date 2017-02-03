@@ -29,8 +29,11 @@
     // Do any additional setup after loading the view from its nib.
     [self reloadData];
 
-    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleDone target:self action:@selector(logout)];
-    self.navigationItem.leftBarButtonItem = back;
+    // This covers up the back button, if we are coming from a tweet list.
+    if (self.isMeTab) {
+       UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleDone target:self action:@selector(logout)];
+        self.navigationItem.leftBarButtonItem = back;
+    }
 
     UIBarButtonItem *compose = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStyleDone target:self action:@selector(compose)];
     self.navigationItem.rightBarButtonItem = compose;

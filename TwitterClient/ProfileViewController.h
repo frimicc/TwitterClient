@@ -12,6 +12,7 @@
 @interface ProfileViewController : UIViewController
 
 @property (nonatomic, strong) User *model;
+@property (nonatomic, assign) BOOL isMeTab;
 
 - (void) reloadData;
 

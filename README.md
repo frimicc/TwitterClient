@@ -52,7 +52,8 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+This app is not complete because there was way too much to implement for a beginner in the available time. I did my
+best, but learned a lot even though I did not finish.
 
 ## License
 

@@ -66,6 +66,8 @@
 }
 
 - (IBAction)replyTapped:(id)sender {
+    id<TweetActionsDelegate> strongDelegate = self.tweetActionsDelegate;
+    [strongDelegate handleReply:self.model];
 }
 
 - (IBAction)retweetTapped:(id)sender {

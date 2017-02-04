@@ -32,6 +32,11 @@
         [self.avatarImageView setImageWithURL:[NSURL URLWithString:self.model.profileImageUrl]];
     }
 
+    if (self.replyToTweet) {
+        NSString *replyTo = self.replyToTweet.user.screenname;
+        self.tweetText.text = [NSString stringWithFormat:@"@%@ ", replyTo];
+    }
+
     UIBarButtonItem *countButton = [[UIBarButtonItem alloc] initWithTitle:@"140" style:UIBarButtonItemStyleDone target:self action:nil];
     countButton.enabled = NO;
     self.countBarButton = countButton;
@@ -54,7 +59,7 @@
 
 - (void) sendTweet {
     [self.tweetText resignFirstResponder];
-    [[TwitterClient sharedInstance] sendTweet:self.tweetText.text];
+    [[TwitterClient sharedInstance] sendTweet:self.tweetText.text inReplyTo:self.replyToTweet.tweetId];
 }
 
 @end

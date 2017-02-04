@@ -20,6 +20,7 @@
 - (void) logout;
 - (void) showUserProfile:(NSString *)screenName;
 - (void) showComposeVC;
+- (void) showComposeVC:(Tweet *)replyToTweet;
 - (void) showHomeTimeline;
 - (void) addTweetToHomeTimeline:(Tweet *)tweet;
 

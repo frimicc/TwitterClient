@@ -20,6 +20,7 @@
 @property (nonatomic, weak) UITabBarController *tabController;
 @property (nonatomic, weak) TweetListViewController *homeTimelineVC;
 @property (nonatomic, weak) UINavigationController *homeNavC;
+@property (nonatomic, weak) UINavigationController *mentionsNavC;
 
 @property (nonatomic, assign) BOOL isLoggedIn;
 
@@ -71,6 +72,7 @@
     TweetListViewController *mvc = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
     mvc.timelineName = @"mentions";
     UINavigationController *nmvc = [[UINavigationController alloc] initWithRootViewController:mvc];
+    self.mentionsNavC = nmvc;
 
     ProfileViewController *pvc = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
     pvc.model = [User currentUser];
@@ -121,14 +123,28 @@
 }
 
 - (void) showComposeVC {
+    [self showComposeVC:nil];
+}
+
+- (void) showComposeVC:(Tweet *)replyToTweet {
     ComposeViewController *cvc = [[ComposeViewController alloc] initWithNibName:@"ComposeViewController" bundle:nil];
     cvc.model = [User currentUser];
+
+    if (replyToTweet) {
+        cvc.replyToTweet = replyToTweet;
+    }
+    
     UINavigationController *localNavController = [self.tabController selectedViewController];
     [localNavController pushViewController:cvc animated:YES];
 }
 
 - (void) showHomeTimeline {
-    [self.tabController showViewController:self.homeNavC sender:nil];
+    if ([self.tabController selectedViewController] == self.homeNavC
+        || [self.tabController selectedViewController] == self.mentionsNavC) {
+        [self.homeNavC popViewControllerAnimated:YES];
+    } else {
+        [self.tabController showViewController:self.homeNavC sender:nil];
+    }
 }
 
 - (void) addTweetToHomeTimeline:(Tweet *)tweet {

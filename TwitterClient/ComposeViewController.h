@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "Tweet.h"
 
 @interface ComposeViewController : UIViewController
 
 @property (nonatomic, strong) User *model;
+@property (nonatomic, strong) Tweet *replyToTweet;
 
 @end

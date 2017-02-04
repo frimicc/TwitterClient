@@ -100,6 +100,10 @@ NSString *tableReuseID = @"tweetTableViewCell";
     [[TwitterClient sharedInstance] favorite:tweetId];
 }
 
+- (void) handleReply:(Tweet *)replyToTweet {
+    [[NavigationManager shared] showComposeVC:replyToTweet];
+}
+
 - (void) compose {
     [[NavigationManager shared] showComposeVC];
 }

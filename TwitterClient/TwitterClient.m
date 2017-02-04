@@ -114,10 +114,18 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 }
 
 - (void) sendTweet:(NSString *)tweetText {
-    NSLog(@"Sending tweet: %@", tweetText);
+    [self sendTweet:tweetText inReplyTo:nil];
+}
+
+- (void) sendTweet:(NSString *)tweetText inReplyTo:(NSString *)replyToTweetId {
+    NSLog(@"Sending tweet: %@ in reply to: %@", tweetText, replyToTweetId);
 
     NSString *escapedString = [tweetText stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSString *apiString = [NSString stringWithFormat:@"1.1/statuses/update.json?status=%@", escapedString];
+
+    if (replyToTweetId) {
+        apiString = [apiString stringByAppendingString:[NSString stringWithFormat:@"&in_reply_to_status_id=%@", replyToTweetId]];
+    }
 
     [self POST:apiString parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
         // no code
@@ -128,6 +136,7 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"Could not update status: %@", error);
+        [[NavigationManager shared] showHomeTimeline];
     }];
 
 }

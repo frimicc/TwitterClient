@@ -20,6 +20,7 @@
 - (void) logout;
 - (void) getUserDictionary:(NSString *)screenName vc:(ProfileViewController *)pvc;
 - (void) sendTweet:(NSString *)tweetText;
+- (void) sendTweet:(NSString *)tweetText inReplyTo:(NSString *)replyToTweetId;
 - (void) retweet:(NSString *)tweetId;
 - (void) favorite:(NSString *)tweetId;
 

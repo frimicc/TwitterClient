@@ -14,6 +14,7 @@
 - (void) handleAvatarTapped:(NSString *)screenName;
 - (void) handleRetweet:(NSString *)tweetId;
 - (void) handleFavorite:(NSString *)tweetId;
+- (void) handleReply:(Tweet *)replyToTweet;
 
 @end
 
